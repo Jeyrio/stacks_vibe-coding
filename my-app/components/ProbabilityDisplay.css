@@ -1,0 +1,192 @@
+/* ProbabilityDisplay.css */
+.probability-display {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.probability-display h3 {
+  margin: 0 0 1rem 0;
+  color: #fff;
+  font-size: 1.125rem;
+}
+
+.probability-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.probability-item {
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.probability-label {
+  color: #aaa;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.probability-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 0;
+}
+
+.probability-bar {
+  margin-top: 0.75rem;
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.probability-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #2e7d32);
+  transition: width 0.3s ease;
+}
+
+/* Stat rows */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: #aaa;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.stat-value {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.stat-value.positive {
+  color: #4caf50;
+}
+
+.stat-value.negative {
+  color: #ef4444;
+}
+
+.probability-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Live Statistics */
+.live-stats-divider {
+  margin: 1.5rem 0 1rem 0;
+  padding-top: 1rem;
+  border-top: 2px solid #3a3a3a;
+}
+
+.live-stats-divider h4 {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.live-value {
+  color: #60a5fa;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Number badges */
+.number-badge {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.number-badge.hot {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+  animation: glow-hot 1.5s ease-in-out infinite;
+}
+
+.number-badge.cold {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+@keyframes glow-hot {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+  }
+}
+
+/* Recent rolls */
+.recent-rolls-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.recent-rolls {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.roll-number {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  background: #1a1a1a;
+  border: 2px solid #3a3a3a;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+}
+
+.roll-number:hover {
+  border-color: #60a5fa;
+  transform: translateY(-2px);
+}
+
+.hot-numbers, .cold-numbers {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+

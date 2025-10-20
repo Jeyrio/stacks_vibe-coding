@@ -1,0 +1,31 @@
+/* JackpotDisplay.css */
+.jackpot-display {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.jackpot-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.jackpot-amount {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.jackpot-info {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}

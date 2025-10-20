@@ -1,0 +1,37 @@
+/* Leaderboard.css */
+.leaderboard {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard h2 {
+  margin: 0 0 1.5rem 0;
+  color: #fff;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.leaderboard-table th {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.leaderboard-table td {
+  color: #ddd;
+}
+
+.leaderboard-table tr:hover {
+  background: #2a2a2a;
+}

@@ -1,0 +1,34 @@
+/* PlayerDashboard.css */
+.player-dashboard {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  color: #fff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.achievements-section,
+.performance-section {
+  margin-top: 2rem;
+}
+
+.achievements-section h3,
+.performance-section h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+}

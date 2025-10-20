@@ -1,0 +1,36 @@
+/* GameInterface.css */
+.game-interface {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.game-header {
+  margin-bottom: 2rem;
+}
+
+.game-content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.game-controls {
+  background: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.dice-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .game-interface {
+    padding: 1rem;
+  }
+}
