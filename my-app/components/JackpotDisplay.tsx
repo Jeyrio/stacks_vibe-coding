@@ -7,10 +7,10 @@ interface JackpotDisplayProps {
 }
 
 const JackpotDisplay: React.FC<JackpotDisplayProps> = ({ amount, gameMode }) => {
-  // Realistic base jackpots per mode
+  // Realistic base jackpots per mode - starting values
   const getRealisticBaseJackpot = () => {
-    const baseJackpots = [2847.39, 1523.67, 982.44]; // Classic, High/Low, Range
-    return baseJackpots[gameMode] || 1500;
+    const baseJackpots = [150.50, 95.75, 68.25]; // Classic, High/Low, Range - realistic starting amounts
+    return baseJackpots[gameMode] || 120;
   };
 
   // Initialize with static value to avoid hydration mismatch
@@ -33,37 +33,28 @@ const JackpotDisplay: React.FC<JackpotDisplayProps> = ({ amount, gameMode }) => 
   useEffect(() => {
     if (!mounted) return; // Skip on server
 
-    if (amount <= 1) {
-      // Realistic progressive jackpot growth
-      const baseJackpot = getRealisticBaseJackpot();
-      
-      // Calculate contribution rate based on simulated activity
-      // Between 0.015 and 0.045 STX per second (realistic casino rates)
-      const contributionPerSecond = 0.015 + (Math.random() * 0.03);
-      
-      // Random speed variations to simulate real bets coming in
-      const speedVariation = () => {
-        return 0.8 + (Math.random() * 0.4); // 0.8x to 1.2x speed
-      };
+    // Realistic progressive jackpot growth - slower and steadier
+    const baseJackpot = getRealisticBaseJackpot();
+    
+    // Calculate contribution rate based on simulated activity
+    // Between 0.003 and 0.01 STX per second (realistic, slower growth)
+    const contributionPerSecond = 0.003 + (Math.random() * 0.007);
+    
+    setIncrementSpeed(contributionPerSecond);
 
-      setIncrementSpeed(contributionPerSecond);
+    // Smooth continuous growth every 1 second (realistic update rate)
+    const growthInterval = setInterval(() => {
+      setDisplayAmount((prev) => {
+        // Occasionally add small random jumps (simulating bigger bets)
+        const randomJump = Math.random() < 0.05 ? (Math.random() * 0.8) : 0;
+        // Small, steady increment per second
+        const increment = contributionPerSecond + randomJump;
+        return prev + increment;
+      });
+    }, 1000); // Update every 1 second for smooth, realistic growth
 
-      // Smooth continuous growth every 100ms
-      const growthInterval = setInterval(() => {
-        setDisplayAmount((prev) => {
-          // Occasionally add small random jumps (simulating big bets)
-          const randomJump = Math.random() < 0.03 ? (Math.random() * 2) : 0;
-          const speedMod = speedVariation();
-          const increment = (contributionPerSecond * 0.1 * speedMod) + randomJump;
-          return prev + increment;
-        });
-      }, 100);
-
-      return () => clearInterval(growthInterval);
-    } else {
-      setDisplayAmount(amount);
-    }
-  }, [amount, gameMode, mounted]);
+    return () => clearInterval(growthInterval);
+  }, [gameMode, mounted]);
 
   // Smooth animation for display
   useEffect(() => {
